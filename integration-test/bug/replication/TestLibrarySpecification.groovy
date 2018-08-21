@@ -16,8 +16,8 @@ class TestLibrarySpecification extends bug.replication.specifications.JenkinsSpe
     private static final Logger Logger = LoggerFactory.getLogger(TestLibrarySpecification.getName());
     private static final String COMMIT = "5482b35aa71d7b3c0a57da49944b2eca63d542e9"
 
-    def "notifyBitbucket is used in a job"() {
-        given: "a job contains a call to a libarary which uses a global variable"
+    def "testLibrary is used in a job"() {
+        given: "a job contains a call to a library which uses a global variable"
         WorkflowJob workflowJob = jenkinsRule.createProject(WorkflowJob, 'project')
 
         workflowJob.definition = new CpsFlowDefinition("""
@@ -41,9 +41,6 @@ class TestLibrarySpecification extends bug.replication.specifications.JenkinsSpe
                             }
                         }
                     }
-                }
-                options {
-                    durabilityHint('PERFORMANCE_OPTIMIZED')
                 }
             }
         """.stripIndent(), true)
