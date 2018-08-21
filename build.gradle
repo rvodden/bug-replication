@@ -1,0 +1,101 @@
+import com.mkobit.jenkins.pipelines.SharedLibraryPlugin
+
+plugins {
+    id 'com.mkobit.jenkins.pipelines.shared-library' version '0.6.2'
+}
+
+description = "Common Services Shared Build Libraries"
+
+dependencies {
+    testImplementation 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testImplementation 'net.bytebuddy:byte-buddy:1.8.17'
+    testImplementation 'org.objenesis:objenesis:2.6'
+    testImplementation 'net.bytebuddy:byte-buddy:1.8.17'
+    testImplementation 'org.objenesis:objenesis:2.6'
+    testImplementation 'com.xebialabs.restito:restito:0.9.3'
+
+    testRuntime 'ch.qos.logback:logback-classic:1.2.3'
+
+    integrationTestCompile sourceSets.main.output
+
+    integrationTestImplementation 'org.spockframework:spock-core:1.1-groovy-2.4'
+    integrationTestImplementation 'com.github.tomakehurst:wiremock:2.18.0'
+
+    integrationTestRuntime 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+test {
+    // Load the logging configuration file
+    systemProperties 'logback.configurationFile' : new File(projectDir,'logback-test.xml').absolutePath
+    // Jenkins doesn't play nicely with IPv6
+    systemProperties 'java.net.preferIPv4Stack' : 'true'
+    testLogging {
+        exceptionFormat "full"
+    }
+}
+
+integrationTest {
+    systemProperties 'logback.configurationFile' : new File(projectDir,'logback-test.xml').absolutePath
+    // always run the tests
+    outputs.upToDateWhen { false }
+}
+
+jenkinsIntegration {
+    baseUrl = new URL("http://localhost:5050")
+    authentication = new com.mkobit.jenkins.pipelines.http.AnonymousAuthentication()
+    downloadDirectory = layout.projectDirectory.dir("jenkinsResources")
+}
+
+sharedLibrary {
+
+    coreVersion = "2.93"
+    pipelineTestUnitVersion = "1.1"
+    testHarnessVersion = "2.40"
+
+    pluginDependencies {
+        workflowApiPluginVersion = "2.25"
+        workflowBasicStepsPluginVersion = "2.5"
+        workflowCpsPluginVersion = "2.44"
+        workflowDurableTaskStepPluginVersion = "2.18"
+        workflowCpsGlobalLibraryPluginVersion = "2.9"
+        workflowJobPluginVersion = "2.17"
+        workflowMultibranchPluginVersion = "2.17"
+        workflowStepApiPluginVersion = "2.14"
+        workflowScmStepPluginVersion = "2.4"
+        workflowSupportPluginVersion = "2.18"
+
+        dependency("io.jenkins.blueocean",  "blueocean-web", "1.4.1")
+        dependency("org.jenkinsci.plugins", "pipeline-model-api", "1.2.7")
+        dependency("org.jenkinsci.plugins", "pipeline-model-declarative-agent", "1.1.1")
+        dependency("org.jenkinsci.plugins", "pipeline-model-definition","1.2.7")
+        dependency("org.jenkinsci.plugins", "pipeline-model-extensions", "1.2.7")
+    }
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'vars'
+        }
+    }
+    test {
+        groovy {
+            srcDir 'test'
+        }
+    }
+    integrationTest {
+        groovy {
+            srcDir 'integration-test'
+        }
+        resources {
+            srcDir 'jenkinsResources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    gradlePluginPortal()
+
+}

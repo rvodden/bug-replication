@@ -1,0 +1,82 @@
+[submodule "components/ipt-as-event-history"]
+	path = components/ipt-as-event-history
+	url = ssh://git@bitbucket.ipttools.info/ev/ipt-as-event-history.git
+    branch = master
+
+[submodule "components/ipt-sp-eventassociations"]
+	path = components/ipt-sp-eventassociations
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-sp-eventassociations.git
+    branch = master
+
+[submodule "components/ipt-ss-address-management"]
+	path = components/ipt-ss-address-management
+	url = ssh://git@bitbucket.ipttools.info/ssam/ipt-ss-address-management.git
+    branch = master
+
+[submodule "components/ipt-ss-dataplatform-entities"]
+	path = components/ipt-ss-dataplatform-entities
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-entities.git
+    branch = master
+
+[submodule "components/ipt-ss-dataplatform-personservice"]
+	path = components/ipt-ss-dataplatform-personservice
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-personservice.git
+    branch = master
+
+[submodule "components/ipt-ss-file-management"]
+	path = components/ipt-ss-file-management
+	url = ssh://git@bitbucket.ipttools.info/fm/ipt-ss-file-management.git
+	branch = master
+
+[submodule "components/ipt-ss-reference-data"]
+	path = components/ipt-ss-reference-data
+	url = ssh://git@bitbucket.ipttools.info/ref/ipt-ss-reference-data.git
+    branch = master
+
+[submodule "components/ipt-ss-service-delivery"]
+	path = components/ipt-ss-service-delivery
+	url = ssh://git@bitbucket.ipttools.info/ser/ipt-ss-service-delivery.git
+    branch = master
+
+[submodule "components/ipt-sp-dataplatform-personassociations"]
+	path = components/ipt-sp-dataplatform-personassociations
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-sp-dataplatform-personassociations.git
+    branch = master
+
+[submodule "components/ipt-sp-identitytypes"]
+	path = components/ipt-sp-identitytypes
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-sp-identitytypes.git
+    branch = master
+
+[submodule "components/ipt-ss-dataplatform-cdc-persistence"]
+	path = components/ipt-ss-dataplatform-cdc-persistence
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-cdc-persistence.git
+    branch = master
+
+[submodule "components/ipt-ss-dataplatform-index-persistence"]
+	path = components/ipt-ss-dataplatform-index-persistence
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-index-persistence.git
+    branch = master
+
+[submodule "components/ipt-ss-dataplatform-services"]
+    path = components/ipt-ss-dataplatform-services
+    url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-services.git
+    branch = master
+
+[submodule "components/ipt-ss-sequence-number"]
+	path = components/ipt-ss-sequence-number
+	url = ssh://git@bitbucket.ipttools.info/sssn/ipt-ss-sequence-number.git
+    branch = master
+
+[submodule "components/ipt-persistence-tools-hanker"]
+	path = components/ipt-persistence-tools-hanker
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-persistence-tools-hanker.git
+    branch = master
+
+[submodule "components/ipt-ss-identity-management"]
+	path = components/ipt-ss-identity-management
+	url = ssh://git@bitbucket.ipttools.info/id/ipt-ss-identity-management.git
+
+[submodule "components/ipt-ss-dataplatform-tools"]
+	path = components/ipt-ss-dataplatform-tools
+	url = ssh://git@bitbucket.ipttools.info/ipd/ipt-ss-dataplatform-tools.git
