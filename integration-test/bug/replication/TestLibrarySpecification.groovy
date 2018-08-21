@@ -34,9 +34,9 @@ class TestLibrarySpecification extends bug.replication.specifications.JenkinsSpe
                             script {
                                 try {
                                     testEcho
-                                } catch (Exception E) {
-                                    echo E.toString()
-                                    throw E
+                                } catch (Exception e) {
+                                    echo e.toString()
+                                    throw e
                                 }
                             }
                         }
