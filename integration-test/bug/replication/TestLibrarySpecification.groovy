@@ -32,7 +32,7 @@ class TestLibrarySpecification extends bug.replication.specifications.JenkinsSpe
                         steps {
                             script {
                                 try {
-                                    testEcho
+                                    testEcho()
                                 } catch (Exception exception) {
                                     echo exception.toString()
                                     throw exception
