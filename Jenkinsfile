@@ -1,26 +1,22 @@
 testLibrary = libraryFromLocalRepo()
 
-echo this.currentBuild.toString()
+echo currentBuild.toString()
 
 pipeline {
-    agent none
+    agent any
     stages {
-        stage ('Test Bitbucket notifications') {
-            agent any
+        stage ('Test Echo') {
             steps {
                 script {
                     try {
                         testEcho
-                    } catch (Exception E) {
-                        echo E.toString()
-                        throw E
+                    } catch (Exception exception) {
+                        echo exception.toString()
+                        throw exception
                     }
                 }
             }
         }
-    }
-    options {
-        durabilityHint('PERFORMANCE_OPTIMIZED')
     }
 }
 

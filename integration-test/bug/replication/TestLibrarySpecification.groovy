@@ -21,22 +21,21 @@ class TestLibrarySpecification extends bug.replication.specifications.JenkinsSpe
         WorkflowJob workflowJob = jenkinsRule.createProject(WorkflowJob, 'project')
 
         workflowJob.definition = new CpsFlowDefinition("""
-            testLibrary = library('testLibrary') _
+            @Library('testLibrary') _
             
             echo this.currentBuild.toString()
 
             pipeline {
-                agent none
+                agent any
                 stages {
-                    stage ('Test Bitbucket notifications') {
-                        agent any
+                    stage ('Test Echo') {
                         steps {
                             script {
                                 try {
                                     testEcho
-                                } catch (Exception e) {
-                                    echo e.toString()
-                                    throw e
+                                } catch (Exception exception) {
+                                    echo exception.toString()
+                                    throw exception
                                 }
                             }
                         }

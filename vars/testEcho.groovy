@@ -1,3 +1,4 @@
 def call() {
-    this.echo this.currentBuild.displayName
+    echo 'I am in testEcho'
+    echo currentBuild.displayName
 }
